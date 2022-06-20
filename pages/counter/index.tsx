@@ -24,11 +24,11 @@ const Counter = () => {
 
   const counterStore = createStore(counterReducer);
 
-  const onChnageCounter = () => {
+  const onChangeCounter = () => {
     
   };
 
-  counterStore.subscribe(onChnageCounter);
+  counterStore.subscribe(onChangeCounter);
 
   console.log(counterStore.getState());
 

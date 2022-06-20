@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Box } from "@chakra-ui/react";
 import { DefaultButton } from "../../components/Buttons";
 import { createStore } from "redux";

@@ -2,8 +2,7 @@
 
 - [redux ducks design pattern](https://velog.io/@carrot/Next.js-Redux) - 리덕스 ducks 디자인 패턴 설명
 - [redux flux design pattern](https://blog.naver.com/backsajang420/221368106022) - 리덕스 flux 디자인 패턴 설명
-
-
+- [redux with next.js](https://www.devkkiri.com/post/59cb38dd-f939-462d-9e7f-afcc338b621f) - Next.js 와 Redux 연동 세팅
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 

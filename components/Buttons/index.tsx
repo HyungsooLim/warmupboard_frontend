@@ -12,6 +12,7 @@ export const DefaultButton = ({ ...props }) => {
       <Button
       borderColor={"black"}
       borderWidth={"thin"}
+      onClick={props.onClick}
       >{props.children}</Button>
     </>
   );

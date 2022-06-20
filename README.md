@@ -1,3 +1,10 @@
+# References
+
+- [redux ducks design pattern](https://velog.io/@carrot/Next.js-Redux) - 리덕스 ducks 디자인 패턴 설명
+- [redux flux design pattern](https://blog.naver.com/backsajang420/221368106022) - 리덕스 flux 디자인 패턴 설명
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
@@ -32,5 +39,3 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
-test

@@ -13,22 +13,31 @@ import React, { FormEvent, useEffect } from "react";
 import { createStore } from "redux";
 
 const Todo = () => {
+  let list: any;
+
+  useEffect(() => {
+    list = document.getElementById("list");
+    console.log("useEffect() : ", list);
+  }, []);
+
   const ADD_TODO = "ADD_TODO";
   const DELETE_TODO = "DELETE_TODO";
 
-  let list: any;
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    list = document.getElementById("list");
-  }, []);
+  const addTodo = (text: any) => {
+    return { type: ADD_TODO, text };
+  };
+
+  const deleteTodo = (id: any) => {
+    return { type: DELETE_TODO, id };
+  };
 
   const todoReducer = (state: any = [], action: any) => {
     switch (action.type) {
       case ADD_TODO:
-        state = [...state, { text: action.text, id: Date.now() }];
+        state = [{ text: action.text, id: Date.now() }, ...state];
         break;
       case DELETE_TODO:
-        state = [];
+        state = state.filter((state: any) => state.id !== action.id);
         break;
     }
 
@@ -37,20 +46,38 @@ const Todo = () => {
 
   const todoStore = createStore(todoReducer);
 
-  const addTodo = (todo: any) => {
-    todoStore.dispatch({ type: ADD_TODO, text: todo });
+  const dispatchAddTodo = (text: any) => {
+    todoStore.dispatch(addTodo(text));
   };
 
-  todoStore.subscribe(() => {
-    console.log(todoStore.getState());
-  });
+  const dispatchDeleteTodo = (e: any) => {
+    const id = parseInt(e.target.parentNode.id);
+    todoStore.dispatch(deleteTodo(id));
+  };
 
   const paintTodos = () => {
     const toDos = todoStore.getState();
+    list.innerHTML = "";
     toDos.forEach((toDo: any) => {
-      list?.append((<ListItem>{toDo}</ListItem>) as unknown as Node);
+      const li = document.createElement("li");
+      li.id = toDo.id;
+      li.innerText = toDo.text;
+      list.appendChild(li);
+      const btn = document.createElement("button");
+      btn.addEventListener("click", dispatchDeleteTodo);
+      // btn css -------------------------------------
+      btn.style.backgroundColor = "#0000005c";
+      btn.style.margin = "2%";
+      btn.style.width = "10%";
+      btn.style.borderRadius = "0.375rem";
+      // ---------------------------------------------
+      btn.innerText = "DELETE";
+      li.appendChild(btn);
     });
+    console.log(list);
   };
+
+  todoStore.subscribe(paintTodos);
 
   return (
     <>
@@ -65,7 +92,7 @@ const Todo = () => {
           console.log(e);
           let todo = e.target[0].value;
           console.log(todo);
-          addTodo(todo);
+          dispatchAddTodo(todo);
         }}
       >
         <FormControl ml={"5%"}>
@@ -89,9 +116,7 @@ const Todo = () => {
         </FormControl>
       </form>
       <Box>
-        <UnorderedList id="list" m={"5%"}>
-            <ListItem>test</ListItem>
-        </UnorderedList>
+        <UnorderedList id="list" m={"5%"}></UnorderedList>
       </Box>
     </>
   );

@@ -1,4 +1,6 @@
+import { Box } from "@chakra-ui/react";
 import type { NextPage } from "next";
+import Link from "next/link";
 import { useEffect } from "react";
 import * as BoardAPI from "../API/Board";
 
@@ -13,7 +15,9 @@ const Home: NextPage = () => {
 
   return (
     <>
-      
+      <Box m={"5%"}>
+        <Link href={"/todo"}>TODO</Link>
+      </Box>
     </>
   );
 };

@@ -1,17 +1,33 @@
 import { createStore } from "redux";
 
-const counterReducer = (state = 0, action: any) => {
+const ADD = "ADD";
+const DELETE = "DELETE";
 
-    if(action.type === "INCREMENT") {
-        state++;
-    }else if(action.type === "DECREMENT") {
-        state--;
-    }
+export const addTodo = (text: string) => {
+  return {
+    type: ADD,
+    text,
+  };
+};
 
-  return state;
+export const deleteTodo = (id: number) => {
+  return {
+    type: DELETE,
+    id,
+  };
+};
+
+const counterReducer = (state: any = [], action: any) => {
+  switch (action.type) {
+    case ADD:
+      state = [{ text: action.text, id: Date.now() }, ...state];
+    case DELETE:
+      state = state.filter((todo: string) => {
+        todo !== action.id;
+      });
+  }
 };
 
 const counterStore = createStore(counterReducer);
 
-counterStore.dispatch({ type: "INCREMENT" });
-counterStore.dispatch({ type: "DECREMENT" });
+export default counterStore;

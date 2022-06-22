@@ -59,7 +59,7 @@ const TodoPage = ({ ...stores }: any, props: any) => {
       <Box>
         <UnorderedList id="list" m={"5%"}>
           {stores.todos.map((value: any, index: number) => {
-            return <Todo text={value} key={index} />;
+            return <Todo text={value.text} id={value.id} key={index} />;
           })}
         </UnorderedList>
       </Box>

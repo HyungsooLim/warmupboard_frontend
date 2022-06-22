@@ -1,14 +1,11 @@
 import { Button, ListItem } from "@chakra-ui/react";
 import React from "react";
 
-const Todo = ({...props}) => {
-
-    console.log("=== Todo Component Mounted ===");
-    console.log("component props : ", props);
+const Todo = ({text, id}: any, props: any) => {
 
   return (
     <ListItem>
-      {props.text}
+      {text}
       {/* <Button mt={"2%"} backgroundColor={"blackAlpha.500"} type={"button"}>
         DELETE
       </Button> */}

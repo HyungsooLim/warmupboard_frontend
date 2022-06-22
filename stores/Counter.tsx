@@ -17,7 +17,7 @@ const deleteTodo = (id: number) => {
   };
 };
 
-const counterReducer = (state: any = ["hello", "nice"], action: any) => {
+const counterReducer = (state: any = [], action: any) => {
   switch (action.type) {
     case ADD:
       state = [{ text: action.text, id: Date.now() }, ...state];

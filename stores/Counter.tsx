@@ -23,8 +23,8 @@ const counterReducer = (state: any = [], action: any) => {
       state = [{ text: action.text, id: Date.now() }, ...state];
       break;
     case DELETE:
-      state = state.filter((todo: string) => {
-        todo !== action.id;
+      state = state.filter((todo: any) => {
+      todo.id !== action.id;
       });
       break;
   }

@@ -1,16 +1,33 @@
 import { Button, ListItem } from "@chakra-ui/react";
 import React from "react";
+import { connect } from "react-redux";
+import { actionCreators } from "../../stores/Counter";
 
-const Todo = ({text, id}: any, props: any) => {
 
+function mapDispatchToProps(dispatch: any, ownProps: any) {
+  return {
+    onDeleteBtnClick: () => {
+      dispatch(actionCreators.deleteTodo(ownProps.id));
+    }
+  };
+}
+
+const Todo = ({ text, id }: any, props: any) => {
   return (
     <ListItem>
       {text}
-      {/* <Button mt={"2%"} backgroundColor={"blackAlpha.500"} type={"button"}>
+      <Button
+        m={"2%"}
+        backgroundColor={"blackAlpha.500"}
+        type={"button"}
+        onClick={}
+      >
         DELETE
-      </Button> */}
+      </Button>
     </ListItem>
   );
 };
 
-export default Todo;
+
+
+export default connect(null, mapDispatchToProps)(Todo);

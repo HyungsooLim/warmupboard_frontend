@@ -1,3 +1,4 @@
+import { composeWithDevTools } from "@reduxjs/toolkit/dist/devtoolsExtension";
 import { createStore } from "redux";
 
 const ADD = "ADD";
@@ -31,7 +32,7 @@ const counterReducer = (state: any = [], action: any) => {
   return state;
 };
 
-const counterStore = createStore(counterReducer);
+const counterStore = createStore(counterReducer, composeWithDevTools);
 
 export const actionCreators = {
     addTodo,

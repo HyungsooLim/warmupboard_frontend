@@ -1,19 +1,10 @@
 import { Button, ListItem } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { actionCreators } from "../../stores/Counter";
 
-
-function mapDispatchToProps(dispatch: any, ownProps: any) {
-  console.log(ownProps.id);
-  return {
-    onDeleteBtnClick: () => {
-      dispatch(actionCreators.deleteTodo(ownProps.id));
-    }
-  };
-}
-
 const Todo = ({ text, id, onDeleteBtnClick }: any, props: any) => {
+
   return (
     <ListItem>
       {text}
@@ -29,6 +20,15 @@ const Todo = ({ text, id, onDeleteBtnClick }: any, props: any) => {
   );
 };
 
-
+function mapDispatchToProps(dispatch: any, ownProps: any) {
+  console.log(ownProps.id);
+  return {
+    onDeleteBtnClick: () => {
+      console.log("===== onDeleteBtn Clicked =====")
+      console.log("ownProps", ownProps);
+      dispatch(actionCreators.deleteTodo(ownProps.id));
+    },
+  };
+}
 
 export default connect(null, mapDispatchToProps)(Todo);

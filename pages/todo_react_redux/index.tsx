@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { actionCreators } from "../../stores/Counter";
+import { actionCreators } from "../../stores/Counter_react_redux";
 import Todo from "../../components/Todo";
 
 const TodoPage = ({ ...stores }: any, props: any) => {

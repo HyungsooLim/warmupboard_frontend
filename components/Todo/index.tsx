@@ -1,7 +1,7 @@
 import { Button, ListItem } from "@chakra-ui/react";
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { actionCreators } from "../../stores/Counter";
+import { actionCreators } from "../../stores/Counter_react_redux";
 
 const Todo = ({ text, id, onDeleteBtnClick }: any, props: any) => {
 

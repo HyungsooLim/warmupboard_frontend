@@ -3,7 +3,7 @@ import type { AppProps } from "next/app";
 import { StrictMode } from "react";
 import { Provider } from "react-redux";
 import Head from "../components/Head";
-import counterStore from "../stores/Counter";
+import counterStore from "../stores/Counter_react_redux";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   

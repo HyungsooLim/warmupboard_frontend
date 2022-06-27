@@ -5,6 +5,7 @@ import { actionCreators } from "../../stores/Counter";
 
 
 function mapDispatchToProps(dispatch: any, ownProps: any) {
+  console.log(ownProps.id);
   return {
     onDeleteBtnClick: () => {
       dispatch(actionCreators.deleteTodo(ownProps.id));
@@ -12,7 +13,7 @@ function mapDispatchToProps(dispatch: any, ownProps: any) {
   };
 }
 
-const Todo = ({ text, id }: any, props: any) => {
+const Todo = ({ text, id, onDeleteBtnClick }: any, props: any) => {
   return (
     <ListItem>
       {text}
@@ -20,7 +21,7 @@ const Todo = ({ text, id }: any, props: any) => {
         m={"2%"}
         backgroundColor={"blackAlpha.500"}
         type={"button"}
-        onClick={}
+        onClick={onDeleteBtnClick}
       >
         DELETE
       </Button>

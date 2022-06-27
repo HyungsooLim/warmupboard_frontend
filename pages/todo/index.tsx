@@ -23,12 +23,12 @@ const TodoPage = ({ ...stores }: any, props: any) => {
   const handleOnSubmit = (e: any) => {
     e.preventDefault();
     stores.addTodo(text);
-    setText("");
+    // setText("");
   };
   // ================= Redux =====================
-  console.log("props : ", props);
-  console.log("stores : ", stores);
-  console.log("todos : ", stores.todos);
+  // console.log("props : ", props);
+  // console.log("stores : ", stores);
+  // console.log("todos : ", stores.todos);
 
   return (
     <>

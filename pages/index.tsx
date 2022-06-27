@@ -16,7 +16,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Box m={"5%"}>
-        <Link href={"/todo"}>TODO</Link>
+        <Link href={"/todo_react_redux"}>TODO</Link>
       </Box>
     </>
   );

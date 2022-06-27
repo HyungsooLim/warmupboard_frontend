@@ -12,6 +12,7 @@ const Todo = ({ text, id, onDeleteBtnClick }: any, props: any) => {
         m={"2%"}
         backgroundColor={"blackAlpha.500"}
         type={"button"}
+        id={id}
         onClick={onDeleteBtnClick}
       >
         DELETE
@@ -21,11 +22,11 @@ const Todo = ({ text, id, onDeleteBtnClick }: any, props: any) => {
 };
 
 function mapDispatchToProps(dispatch: any, ownProps: any) {
-  console.log(ownProps.id);
+  console.log("ownProps", ownProps);
   return {
     onDeleteBtnClick: () => {
       console.log("===== onDeleteBtn Clicked =====")
-      console.log("ownProps", ownProps);
+      console.log("clicked_ownProps", ownProps);
       dispatch(actionCreators.deleteTodo(ownProps.id));
     },
   };

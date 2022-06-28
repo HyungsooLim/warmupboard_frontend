@@ -7,7 +7,7 @@ import { actionCreators } from "../../stores/Counter_react_redux";
 const Todo = ({ text, id, onDeleteBtnClick }: any, props: any) => {
   return (
     <ListItem>
-      <Link href={"${id}"}>{text}</Link>
+      <Link href={"/todo_react_redux/${id}"}>{text}</Link>
       <Button
         m={"2%"}
         backgroundColor={"blackAlpha.500"}
